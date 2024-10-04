@@ -4,6 +4,7 @@ import './_hydration';
 import {UIStore} from './ui';
 import {CounterStore} from './counter';
 import {AuthStore} from './auth';
+import {UserProfileStore} from '@app/stores/userProfile';
 
 class Stores {
   ui = new UIStore();

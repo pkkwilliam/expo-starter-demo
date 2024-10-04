@@ -16,16 +16,18 @@ export type Props = {
 
 export const AuthLogin: NavioScreen<Props> = observer(({type = 'push'}) => {
   useAppearance(); // for Dark Mode
-  const {t, navio, api} = useServices();
+  const {t, navio, api, cacheableApi} = useServices();
   const {auth} = useStores();
 
   // State
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
+  const [userProfile, setUserProfile] = useState({name: 'FUNNY BOY'});
 
   // Start
   useEffect(() => {
     configureUI();
+    cacheableApi.getUserProfile((response: any) => setUserProfile(response));
   }, []);
 
   // API Methods
@@ -58,6 +60,9 @@ export const AuthLogin: NavioScreen<Props> = observer(({type = 'push'}) => {
     <View flex bg-bgColor>
       <ScrollView contentInsetAdjustmentBehavior="always">
         <View>
+          <View>
+            <Text>{`Mr Login In Boy: ${userProfile.name}`}</Text>
+          </View>
           <View flex centerH marginT-30>
             <Text text50>Login</Text>
 
@@ -65,7 +70,7 @@ export const AuthLogin: NavioScreen<Props> = observer(({type = 'push'}) => {
               just fill in any credentials
             </Text>
           </View>
-
+          <View />
           <View marginT-s6 centerH>
             <View
               paddingH-s4
@@ -105,5 +110,5 @@ export const AuthLogin: NavioScreen<Props> = observer(({type = 'push'}) => {
   );
 });
 AuthLogin.options = props => ({
-  title: `Auth flow`,
+  title: 'Auth flow',
 });

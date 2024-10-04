@@ -15,15 +15,17 @@ import {Reanimated2} from '@app/components/reanimated2';
 import {Row} from '@app/components/row';
 import {useAppearance} from '@app/utils/hooks';
 import {NavioSection} from '@app/components/sections/NavioSection';
+import {sleep} from '@app/utils/help';
 
 export const Main: NavioScreen = observer(({}) => {
   useAppearance();
   const {counter, ui} = useStores();
-  const {t, api, navio} = useServices();
+  const {t, api, navio, cacheableApi} = useServices();
   const navigation = navio.useN();
 
   // State (local)
   const [loading, setLoading] = useState(false);
+  const [userProfile, setUserProfile] = useState({name: 'FUNNY BOY'});
 
   // API Methods
   const getCounterValue = useCallback(async () => {
@@ -39,6 +41,11 @@ export const Main: NavioScreen = observer(({}) => {
     }
   }, [api.counter, counter]);
 
+  const getUserProfile = async () => {
+    const result = await cacheableApi.getUserProfile();
+    setUserProfile(result);
+  };
+
   // Methods
   const handleCounterDec = () => counter.set('value', counter.value - 1);
   const handleCounterInc = () => counter.set('value', counter.value + 1);
@@ -48,6 +55,7 @@ export const Main: NavioScreen = observer(({}) => {
   useEffect(() => {
     configureUI();
     getCounterValue();
+    getUserProfile();
   }, []);
 
   // UI Methods
@@ -65,6 +73,8 @@ export const Main: NavioScreen = observer(({}) => {
   return (
     <View flex bg-bgColor>
       <ScrollView contentInsetAdjustmentBehavior="always">
+        <Text>User Profile</Text>
+        <Text>{`Name: ${userProfile?.name ?? 'NA'}`}</Text>
         <NavioSection />
 
         <Section title="Expo">

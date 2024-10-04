@@ -4,10 +4,12 @@ import {getNavio} from '@app/navio';
 import {OnLaunchService} from './onLaunch';
 import {TranslateService} from './translate';
 import {ApiService} from './api';
+import {CacheableApiService} from '@app/services/api/cacheableApiService';
 
 class Services {
   t = new TranslateService();
   api = new ApiService();
+  cacheableApi = new CacheableApiService();
   onLaunch = new OnLaunchService();
 
   // -- adding navio as a service

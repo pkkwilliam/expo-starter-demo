@@ -1,6 +1,6 @@
 export const en = {
   home: {
-    title: 'Home',
+    title: 'Homee',
   },
   settings: {
     title: 'Settings',

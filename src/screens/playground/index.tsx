@@ -30,6 +30,7 @@ export const Playground: React.FC = observer(() => {
   // Methods
   const showFlashList = () => navio.push('PlaygroundFlashList');
   const showExpoImage = () => navio.push('PlaygroundExpoImage');
+  const showSendbirdChatTest = () => navio.push('SendbirdChatTest');
   const showDrawerWithTabs = () => {
     Alert.alert('Uncomment related code in @app/navio.tsx and @app/screens/playground');
     // uncomment related code in navio.tsx and below
@@ -71,6 +72,12 @@ export const Playground: React.FC = observer(() => {
           icon: 'image-outline',
           onPress: showExpoImage,
         },
+        {
+          title: 'Sendbird Chat Test',
+          subtitle: 'by PPKK',
+          icon: 'image-outline',
+          onPress: showSendbirdChatTest,
+        },
       ],
     },
     Navio: {
@@ -109,7 +116,7 @@ export const Playground: React.FC = observer(() => {
     return keys.map(k => {
       const s = SectionsData[k];
       return (
-        <Section key={k} title={k}>
+        <Section key={k}>
           {s.content.map(content => {
             return (
               <View key={content.title} marginV-s1>

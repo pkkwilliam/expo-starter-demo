@@ -4,6 +4,12 @@ import {Main} from '@app/screens/main';
 import {Playground} from '@app/screens/playground';
 import {PlaygroundFlashList} from '@app/screens/playground/flash-list';
 import {PlaygroundExpoImage} from '@app/screens/playground/expo-image';
+import {SendbirdChatTest} from '@app/screens/playground/sendbird-chat-test';
+import {
+  GroupChannelListScreen,
+  GroupChannelCreateScreen,
+  GroupChannelScreen,
+} from '@app/screens/playground/sendbird-group-chat';
 import {Settings} from '@app/screens/settings';
 import {Example} from '@app/screens/_screen-sample';
 
@@ -28,6 +34,16 @@ export const navio = Navio.build({
     PlaygroundFlashList,
     PlaygroundExpoImage,
 
+    SendbirdChatTest,
+    GroupChannelListScreen,
+    GroupChannelCreateScreen: {
+      component: GroupChannelCreateScreen,
+      options: {
+        headerShown: false,
+      },
+    },
+    GroupChannelScreen,
+
     // for .pushStack example
     ProductPage: {
       component: Example,
@@ -50,7 +66,15 @@ export const navio = Navio.build({
       },
     },
     PlaygroundStack: {
-      screens: ['Playground', 'PlaygroundFlashList', 'PlaygroundExpoImage'],
+      screens: [
+        'Playground',
+        'PlaygroundFlashList',
+        'PlaygroundExpoImage',
+        'SendbirdChatTest',
+        'GroupChannelListScreen',
+        'GroupChannelCreateScreen',
+        'GroupChannelScreen',
+      ],
     },
 
     // for .pushStack example

@@ -9,9 +9,6 @@ import {useAppearance} from '@app/utils/hooks';
 import {FlashList} from '@shopify/flash-list';
 import {Image} from 'expo-image';
 import {Bounceable} from 'rn-bounceable';
-import {MMKV} from 'react-native-mmkv';
-
-export const storage = new MMKV();
 
 type TImage = {
   key: string;
