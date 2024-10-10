@@ -16,6 +16,7 @@ import {Row} from '@app/components/row';
 import {useAppearance} from '@app/utils/hooks';
 import {NavioSection} from '@app/components/sections/NavioSection';
 import {sleep} from '@app/utils/help';
+import {WebSocketController} from '@app/components/websocket/WebSocketController';
 
 export const Main: NavioScreen = observer(({}) => {
   useAppearance();
@@ -73,6 +74,7 @@ export const Main: NavioScreen = observer(({}) => {
   return (
     <View flex bg-bgColor>
       <ScrollView contentInsetAdjustmentBehavior="always">
+        <WebSocketController />
         <Text>User Profile</Text>
         <Text>{`Name: ${userProfile?.name ?? 'NA'}`}</Text>
         <NavioSection />

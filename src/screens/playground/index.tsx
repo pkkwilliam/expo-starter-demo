@@ -31,6 +31,7 @@ export const Playground: React.FC = observer(() => {
   const showFlashList = () => navio.push('PlaygroundFlashList');
   const showExpoImage = () => navio.push('PlaygroundExpoImage');
   const showSendbirdChatTest = () => navio.push('SendbirdChatTest');
+  const showWebSocketTest = () => navio.push('WebSocketTest');
   const showDrawerWithTabs = () => {
     Alert.alert('Uncomment related code in @app/navio.tsx and @app/screens/playground');
     // uncomment related code in navio.tsx and below
@@ -77,6 +78,12 @@ export const Playground: React.FC = observer(() => {
           subtitle: 'by PPKK',
           icon: 'image-outline',
           onPress: showSendbirdChatTest,
+        },
+        {
+          title: 'Web Socket Test',
+          subtitle: 'by PKK',
+          icon: 'image-outline',
+          onPress: showWebSocketTest,
         },
       ],
     },

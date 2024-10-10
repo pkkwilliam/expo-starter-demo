@@ -22,6 +22,7 @@ import {
 } from '@app/utils/designSystem';
 import {services} from '@app/services';
 import {AuthLogin} from './screens/auth/login';
+import {WebSocketTest} from '@app/screens/playground/web-socket-test';
 
 // NAVIO
 export const navio = Navio.build({
@@ -35,6 +36,7 @@ export const navio = Navio.build({
     PlaygroundExpoImage,
 
     SendbirdChatTest,
+    WebSocketTest,
     GroupChannelListScreen,
     GroupChannelCreateScreen: {
       component: GroupChannelCreateScreen,
@@ -71,6 +73,7 @@ export const navio = Navio.build({
         'PlaygroundFlashList',
         'PlaygroundExpoImage',
         'SendbirdChatTest',
+        'WebSocketTest',
         'GroupChannelListScreen',
         'GroupChannelCreateScreen',
         'GroupChannelScreen',

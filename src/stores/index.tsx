@@ -4,16 +4,17 @@ import './_hydration';
 import {UIStore} from './ui';
 import {CounterStore} from './counter';
 import {AuthStore} from './auth';
-import {UserProfileStore} from '@app/stores/userProfile';
+import {SocketMessageStore} from '@app/stores/socketMessage';
 
 class Stores {
   ui = new UIStore();
   counter = new CounterStore();
   auth = new AuthStore();
+  socketMessage = new SocketMessageStore();
 }
 export const stores = new Stores();
 
-const StoresContext = React.createContext<Stores>(stores);
+export const StoresContext = React.createContext<Stores>(stores);
 export const StoresProvider = ({children}: any) => (
   <StoresContext.Provider value={stores}>{children}</StoresContext.Provider>
 );

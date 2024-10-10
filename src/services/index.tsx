@@ -5,11 +5,13 @@ import {OnLaunchService} from './onLaunch';
 import {TranslateService} from './translate';
 import {ApiService} from './api';
 import {CacheableApiService} from '@app/services/api/cacheableApiService';
+import {SocketIOService} from '@app/services/websocket/socketIoService';
 
 class Services {
   t = new TranslateService();
   api = new ApiService();
   cacheableApi = new CacheableApiService();
+  socketIo: SocketIOService = new SocketIOService('http://localhost:9092');
   onLaunch = new OnLaunchService();
 
   // -- adding navio as a service
