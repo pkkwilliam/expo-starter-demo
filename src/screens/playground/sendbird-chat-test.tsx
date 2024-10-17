@@ -5,7 +5,7 @@ import {Text, View} from 'react-native-ui-lib';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import platformServices from './platform-service-test';
 import {GroupChannelListScreen} from './sendbird-group-chat';
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {ScrollView} from 'react-native-gesture-handler';
 
 const NICKNAME = 'YOLO90';
@@ -17,9 +17,22 @@ export const SendbirdChatTest: NavioScreen = observer(({}) => {
 
   const [isConnected, setIsConnected] = useState(false);
 
+  const triggerSendbirdConnect2 = useCallback(() => {
+    connect(USER_ID, {nickname: NICKNAME, accessToken: TOKEN})
+      .then(_user => {
+        console.log('Sendbird Connected');
+        console.log(_user);
+        setIsConnected(true);
+      })
+      .catch(_err => {
+        console.error('Sendbird connect error');
+        console.error(_err);
+      });
+  }, [connect]);
+
   useEffect(() => {
-    triggerSendbirdConnect();
-  }, []);
+    triggerSendbirdConnect2();
+  }, [triggerSendbirdConnect2]);
 
   const triggerSendbirdConnect = () => {
     connect(USER_ID, {nickname: NICKNAME, accessToken: TOKEN})

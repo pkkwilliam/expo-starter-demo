@@ -23,12 +23,33 @@ import {
 import {services} from '@app/services';
 import {AuthLogin} from './screens/auth/login';
 import {WebSocketTest} from '@app/screens/playground/web-socket-test';
+import {Landing} from '@app/screens/landing';
+import {MyTeam} from '@app/screens/team/my-team';
+import {QuickGame} from '@app/screens/game/quickGame';
+import {Court} from '@app/screens/court/court';
+import {UserProfile} from '@app/screens/userProfile/userProfile';
+import {AddCourt} from '@app/screens/court/addCourt';
+import {GameResult} from '@app/screens/game/gameResult';
+import {Leaderboard} from '@app/screens/leaderboard/leaderboard';
+import {GameMatched} from '@app/screens/game/gameMatched';
+import {Chat} from '@app/screens/chat/chat';
+import {GroupChat} from '@app/screens/chat/groupChat';
 
 // NAVIO
 export const navio = Navio.build({
   screens: {
+    AddCourt,
+    Chat,
+    Court,
+    GameMatched,
+    GameResult,
+    GroupChat,
+    Landing,
+    Leaderboard,
     Main,
+    QuickGame,
     Settings,
+    UserProfile,
     Example,
 
     Playground,
@@ -53,11 +74,20 @@ export const navio = Navio.build({
         headerShown: false,
       },
     },
-
+    MyTeam,
     // for auth flow
     AuthLogin,
   },
   stacks: {
+    Chat: {
+      screens: ['Chat'],
+      containerOptions: {
+        headerShown: false,
+      },
+    },
+    Court: ['AddCourt', 'Court'],
+    Home: ['Landing', 'Leaderboard', 'MyTeam', 'QuickGame', 'GameMatched'],
+    GroupChat: ['GroupChat'],
     MainStack: ['Main', 'Example'],
     ExampleStack: {
       screens: ['Example'],
@@ -96,13 +126,38 @@ export const navio = Navio.build({
     // main 3 tabs
     AppTabs: {
       layout: {
-        MainTab: {
-          stack: 'MainStack',
+        Home: {
+          stack: 'Home',
           options: () => ({
-            title: 'Main',
+            title: 'Home',
             tabBarIcon: getTabBarIcon('MainTab'),
           }),
         },
+        Court: {
+          stack: ['Court', 'AddCourt'],
+          title: 'Court',
+          tabBarIcon: getTabBarIcon('SettingsTab'),
+        },
+        Chat: {
+          stack: 'Chat',
+          title: 'Chat',
+          tabBarIcon: getTabBarIcon('SettingsTab'),
+        },
+        UserProfileTab: {
+          stack: ['UserProfile'],
+          options: () => ({
+            title: services.t.do('userProfile.title'),
+            tabBarIcon: getTabBarIcon('SettingsTab'),
+            tabBarBadge: 23,
+          }),
+        },
+        // MainTab: {
+        //   stack: 'MainStack',
+        //   options: () => ({
+        //     title: 'Main',
+        //     tabBarIcon: getTabBarIcon('MainTab'),
+        //   }),
+        // },
         PlaygroundTab: {
           stack: 'PlaygroundStack',
           options: () => ({
