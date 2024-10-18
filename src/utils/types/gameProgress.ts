@@ -1,0 +1,9 @@
+export enum GameProgress {
+  MATCHING = 'MATCHING',
+  COORDINATE = 'COORDINATE',
+  CONVENE = 'CONVENE',
+  STARTED = 'STARTED',
+  ENDED = 'ENDED',
+  EXPIRED = 'EXPIRED',
+  NA = 'NA',
+}

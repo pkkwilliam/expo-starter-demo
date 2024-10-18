@@ -6,6 +6,7 @@ interface UserProfile {
   grantedRoles: string[];
   gender: any;
   name: any;
+  nickname: string;
   smsNumber: string;
   status: string;
   updateTime: string;

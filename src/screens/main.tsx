@@ -15,7 +15,6 @@ import {Reanimated2} from '@app/components/reanimated2';
 import {Row} from '@app/components/row';
 import {useAppearance} from '@app/utils/hooks';
 import {NavioSection} from '@app/components/sections/NavioSection';
-import {sleep} from '@app/utils/help';
 import {WebSocketController} from '@app/components/websocket/WebSocketController';
 
 export const Main: NavioScreen = observer(({}) => {

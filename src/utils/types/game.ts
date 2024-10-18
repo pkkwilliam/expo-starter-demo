@@ -1,4 +1,5 @@
 import {Team} from '@app/utils/types/Team';
+import {GameProgress} from '@app/utils/types/gameProgress';
 
 export interface Game {
   id: string;
@@ -8,7 +9,7 @@ export interface Game {
   endTime: any;
   homeTeamScore: number;
   gameType: string;
-  gameProgress: string;
+  gameProgress: GameProgress;
   scoreCalculateType: any;
   teamType: string;
   updateTime: any;

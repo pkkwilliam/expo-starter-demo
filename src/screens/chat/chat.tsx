@@ -3,6 +3,7 @@ import {NavioScreen} from 'rn-navio';
 import {observer} from 'mobx-react';
 import {useServices} from '@app/services';
 import {GroupChannelListFragment} from '@app/screens/playground/sendbird-group-chat';
+import {push} from '@app/utils/NavioUtil';
 
 export const Chat: NavioScreen = observer((props: any) => {
   const {navio} = useServices();
@@ -15,7 +16,7 @@ export const Chat: NavioScreen = observer((props: any) => {
         navio.push('GroupChannelCreateScreen', {channelType});
       }}
       onPressChannel={channel => {
-        navio.N.navigate('GroupChat', {screen: 'GroupChat', params: {channelUrl: channel.url}});
+        push('GroupChatStack', 'GroupChat', {channelUrl: channel.url});
       }}
     />
   );

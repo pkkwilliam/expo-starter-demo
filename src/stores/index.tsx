@@ -5,10 +5,12 @@ import {UIStore} from './ui';
 import {CounterStore} from './counter';
 import {AuthStore} from './auth';
 import {SocketMessageStore} from '@app/stores/socketMessage';
+import {GameStore} from '@app/stores/game';
 
 class Stores {
   ui = new UIStore();
   counter = new CounterStore();
+  gameStore = new GameStore();
   auth = new AuthStore();
   socketMessage = new SocketMessageStore();
 }

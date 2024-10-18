@@ -79,15 +79,24 @@ export const navio = Navio.build({
     AuthLogin,
   },
   stacks: {
-    Chat: {
+    ChatStack: {
       screens: ['Chat'],
-      containerOptions: {
-        headerShown: false,
-      },
     },
-    Court: ['AddCourt', 'Court'],
-    Home: ['Landing', 'Leaderboard', 'MyTeam', 'QuickGame', 'GameMatched'],
-    GroupChat: ['GroupChat'],
+    CourtStack: {
+      screens: ['AddCourt', 'Court'],
+    },
+    HomeStack: {
+      screens: ['Landing', 'Leaderboard', 'MyTeam', 'QuickGame'],
+    },
+    GameMatchedStack: {
+      screens: ['GameMatched'],
+    },
+    GameResultStack: {
+      screens: ['GameResult'],
+    },
+    GroupChatStack: {
+      screens: ['GroupChat'],
+    },
     MainStack: ['Main', 'Example'],
     ExampleStack: {
       screens: ['Example'],
@@ -127,19 +136,19 @@ export const navio = Navio.build({
     AppTabs: {
       layout: {
         Home: {
-          stack: 'Home',
+          stack: 'HomeStack',
           options: () => ({
             title: 'Home',
             tabBarIcon: getTabBarIcon('MainTab'),
           }),
         },
         Court: {
-          stack: ['Court', 'AddCourt'],
+          stack: 'CourtStack',
           title: 'Court',
           tabBarIcon: getTabBarIcon('SettingsTab'),
         },
         Chat: {
-          stack: 'Chat',
+          stack: 'ChatStack',
           title: 'Chat',
           tabBarIcon: getTabBarIcon('SettingsTab'),
         },

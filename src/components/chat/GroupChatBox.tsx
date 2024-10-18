@@ -2,6 +2,7 @@ import React from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {createGroupChannelFragment, useSendbirdChat} from '@sendbird/uikit-react-native';
 import {useGroupChannel} from '@sendbird/uikit-chat-hooks';
+import {Text} from 'react-native-ui-lib';
 
 export const GroupChannelFragment = createGroupChannelFragment({Header: () => null});
 
@@ -12,7 +13,7 @@ export const GroupChatBox = (props: any) => {
   const {channel} = useGroupChannel(sdk, channelUrl);
   console.log(channel);
   if (!channel) {
-    return null;
+    return <Text>Channel URL is Missing!</Text>;
   }
 
   return (

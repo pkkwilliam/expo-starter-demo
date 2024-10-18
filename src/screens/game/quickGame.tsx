@@ -6,6 +6,9 @@ import {ScrollView} from 'react-native';
 import {Game} from '@app/utils/types/game';
 import {TeamType} from '@app/utils/types/TeamType';
 import {useServices} from '@app/services';
+import {GameProgress} from '@app/utils/types/gameProgress';
+import {setRoot} from '@app/utils/NavioUtil';
+import {useStores} from '@app/stores';
 
 export const QuickGame: NavioScreen = observer(({}) => {
   const teamTypes = [
@@ -53,11 +56,13 @@ const PageContent = (props: {teamType: TeamType}) => {
 
 const GameCard = (props: {game: Game}) => {
   const {navio} = useServices();
+  const {gameStore} = useStores();
   const {game} = props;
-  const {homeTeamDto} = game;
   const onClickJoinGame = () => {
-    navio.push('GameMatched', {type: 'push', game});
+    gameStore.set('game', game);
+    setRoot('GameMatchedStack', navio);
   };
+
   return (
     <Card flex row padding-20 marginB-20>
       <View row centerV>
@@ -92,7 +97,7 @@ const MOCK_GAMES: Game[] = [
     endTime: null,
     homeTeamScore: 0,
     gameType: 'QUICK_GAME',
-    gameProgress: 'MATCHING',
+    gameProgress: GameProgress.MATCHING,
     scoreCalculateType: null,
     teamType: 'ONE_VS_ONE',
     updateTime: null,
@@ -101,7 +106,7 @@ const MOCK_GAMES: Game[] = [
     homeTeamDto: {
       id: '66f75c862c4ea34a54b6b151',
       captainId: '66f75c862c4ea34a54b6b150',
-      name: null,
+      name: 'Name1',
       rating: 0,
       season: 1,
       teamStatus: 'ACTIVE',
@@ -112,10 +117,33 @@ const MOCK_GAMES: Game[] = [
           createTime: '2024-09-28T01:31:50.323Z',
           countryCode: '853',
           email: null,
-          imageUrl: null,
+          imageUrl:
+            'https://ds-images.bolavip.com/news/image/740/416/?src=https://images.bolavip.com/webp/en/full/BUS_20240928_BUS_241322_lebron-james-30-1.webp',
           grantedRoles: ['ROLE_USER'],
           gender: null,
           name: null,
+          nickname: '一起打籃球',
+          smsNumber: '63530392',
+          status: 'ACTIVE',
+          updateTime: '2024-10-15T23:37:58.268Z',
+          username: '',
+          sid: '66f75c862c4ea34a54b6b150',
+          enabled: true,
+          accountNonExpired: true,
+          accountNonLocked: true,
+          authorities: ['ROLE_USER'],
+          credentialsNonExpired: true,
+        },
+        {
+          createTime: '2024-09-28T01:31:50.323Z',
+          countryCode: '853',
+          email: null,
+          imageUrl:
+            'https://ds-images.bolavip.com/news/image/740/416/?src=https://images.bolavip.com/webp/en/full/BUS_20240928_BUS_241322_lebron-james-30-1.webp',
+          grantedRoles: ['ROLE_USER'],
+          gender: null,
+          name: null,
+          nickname: 'Nickname123123123123',
           smsNumber: '63530392',
           status: 'ACTIVE',
           updateTime: '2024-10-15T23:37:58.268Z',
@@ -138,13 +166,11 @@ const MOCK_GAMES: Game[] = [
     endTime: null,
     homeTeamScore: 0,
     gameType: 'QUICK_GAME',
-    gameProgress: 'MATCHING',
+    gameProgress: GameProgress.STARTED,
     scoreCalculateType: null,
     teamType: 'ONE_VS_ONE',
     updateTime: null,
-    awayTeamDto: null,
-    court: null,
-    homeTeamDto: {
+    awayTeamDto: {
       id: '66f75c862c4ea34a54b6b151',
       captainId: '66f75c862c4ea34a54b6b150',
       name: null,
@@ -158,10 +184,47 @@ const MOCK_GAMES: Game[] = [
           createTime: '2024-09-28T01:31:50.323Z',
           countryCode: '853',
           email: null,
-          imageUrl: null,
+          imageUrl:
+            'https://ds-images.bolavip.com/news/image/740/416/?src=https://images.bolavip.com/webp/en/full/BUS_20240928_BUS_241322_lebron-james-30-1.webp',
+          grantedRoles: ['ROLE_USER'],
+          gender: null,
+          name: 'Name1',
+          nickname: 'Nickname123123123123',
+
+          smsNumber: '63530392',
+          status: 'ACTIVE',
+          updateTime: '2024-10-15T23:37:58.268Z',
+          username: '',
+          sid: '66f75c862c4ea34a54b6b150',
+          enabled: true,
+          accountNonExpired: true,
+          accountNonLocked: true,
+          authorities: ['ROLE_USER'],
+          credentialsNonExpired: true,
+        },
+      ],
+    },
+    court: null,
+    homeTeamDto: {
+      id: '66f75c862c4ea34a54b6b151',
+      captainId: '66f75c862c4ea34a54b6b150',
+      name: 'Name1',
+      rating: 0,
+      season: 1,
+      teamStatus: 'ACTIVE',
+      teamType: 'ONE_VS_ONE',
+      teamMemberIds: ['66f75c862c4ea34a54b6b150'],
+      teamMembers: [
+        {
+          createTime: '2024-09-28T01:31:50.323Z',
+          countryCode: '853',
+          email: null,
+          imageUrl:
+            'https://ds-images.bolavip.com/news/image/740/416/?src=https://images.bolavip.com/webp/en/full/BUS_20240928_BUS_241322_lebron-james-30-1.webp',
           grantedRoles: ['ROLE_USER'],
           gender: null,
           name: null,
+          nickname: 'Nickname123123123123',
           smsNumber: '63530392',
           status: 'ACTIVE',
           updateTime: '2024-10-15T23:37:58.268Z',
