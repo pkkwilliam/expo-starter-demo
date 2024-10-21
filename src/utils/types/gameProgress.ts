@@ -4,6 +4,7 @@ export enum GameProgress {
   CONVENE = 'CONVENE',
   STARTED = 'STARTED',
   ENDED = 'ENDED',
+  ENTER_SCORE = 'ENTER_SCORE',
   EXPIRED = 'EXPIRED',
   NA = 'NA',
 }

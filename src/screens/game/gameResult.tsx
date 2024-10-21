@@ -3,7 +3,7 @@ import {NavioScreen} from 'rn-navio';
 import {observer} from 'mobx-react';
 import {Button, Text, View} from 'react-native-ui-lib';
 import {ScrollView} from 'react-native';
-import {resetToMainTab} from '@app/utils/NavioUtil';
+import {resetToHomeTab} from '@app/utils/NavioUtil';
 import {useStores} from '@app/stores';
 import {navio} from '@app/navio';
 
@@ -16,7 +16,7 @@ export const GameResult: NavioScreen = observer(({}) => {
   }
 
   const onPressGoBackHome = () => {
-    resetToMainTab(navio);
+    resetToHomeTab(navio);
   };
 
   // const {id} = params.game;

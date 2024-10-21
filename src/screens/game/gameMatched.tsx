@@ -1,17 +1,16 @@
 import React from 'react';
 import {NavioScreen} from 'rn-navio';
 import {observer} from 'mobx-react';
-import {CommonActions, useNavigation, useRoute} from '@react-navigation/native';
-import {Button, Text, View} from 'react-native-ui-lib';
+import {useRoute} from '@react-navigation/native';
+import {Button, Card, Colors, Dialog, Text, View} from 'react-native-ui-lib';
 import {GroupChatBox} from '@app/components/chat/GroupChatBox';
 import {Game} from '@app/utils/types/game';
 import {ApplicationSafeView} from '@app/components/ApplicationSafeView';
 import {Team} from '@app/utils/types/Team';
 import {Image} from 'expo-image';
 import {GameProgress} from '@app/utils/types/gameProgress';
-import {goBack, push, setRoot} from '@app/utils/NavioUtil';
+import {push, resetToHomeTab, setRoot} from '@app/utils/NavioUtil';
 import {useServices} from '@app/services';
-import {Alert} from 'react-native';
 import {useStores} from '@app/stores';
 
 const channelUrl: string =
@@ -35,6 +34,7 @@ export const GameMatched: NavioScreen = observer(({}) => {
           -------- Game Detail --------
         </Text>
         <View paddingH-20>
+          <QuitButton gameProgress={gameProgress} />
           <Text green20>{gameProgress}</Text>
           <Text text80>Home Team</Text>
           <TeamBanner team={homeTeamDto} />
@@ -52,34 +52,108 @@ export const GameMatched: NavioScreen = observer(({}) => {
 });
 
 const Controller = (props: {game: Game}) => {
-  const {navio} = useServices();
   const {gameProgress} = props.game;
-  const onPressUtilPush = () => {
-    push('GameResultStack', 'GameResult', {hee: 'go'}, navio);
-  };
-  const onPressPush = () => {
-    navio.push('GameResult', {hee: 'go'});
-  };
-  const onPressResetRoot = () => {
-    setRoot('GameResultStack', navio);
-  };
   if (gameProgress === GameProgress.MATCHING) {
-    return (
-      <View style={{flexDirection: 'row'}}>
-        <Button label={'Ready To Start'} />
-        <Button label={'Start'} disabled />
-      </View>
-    );
+    return <MatchedController />;
   } else if (gameProgress === GameProgress.STARTED) {
-    return (
-      <View style={{flexDirection: 'row'}}>
-        {/*<Button label={'Finshed and Enter Score'} />*/}
-        <Button label={'Util Push'} onPress={onPressUtilPush} />
-        <Button label={'Push'} onPress={onPressPush} />
-        <Button label={'Reset Root'} onPress={onPressResetRoot} />
-      </View>
-    );
+    return <StartedController />;
+  } else if (gameProgress === GameProgress.ENTER_SCORE) {
+    return <EnterScoreController />;
   }
+};
+
+const EnterScoreController = () => {
+  return (
+    <View>
+      <Text>Enter Score Controller</Text>
+      <Button label={'Enter Score'} />
+    </View>
+  );
+};
+
+const MatchedController = () => {
+  return (
+    <View>
+      <Text>Matched Controller</Text>
+      <Button label={'Start'} />
+    </View>
+  );
+};
+
+const StartedController = () => {
+  return (
+    <View>
+      <Text>Started Controller</Text>
+      <Button label={'Game Finished'} />
+    </View>
+  );
+};
+
+const QuitButton = (props: {gameProgress: GameProgress}) => {
+  const {navio} = useServices();
+  const [showDialog, setShowDialog] = React.useState(false);
+  const onPressQuit = () => {
+    setShowDialog(true);
+  };
+  const onConfirmQuit = () => {
+    setShowDialog(false);
+    setTimeout(() => {
+      resetToHomeTab(navio);
+    }, 800);
+  };
+
+  const {gameProgress} = props;
+
+  const content =
+    gameProgress === GameProgress.STARTED
+      ? 'Are you sure you want to quit? this will consider you lose the game and reduce part of the credit.'
+      : 'Are you sure you want to quit?';
+  return (
+    <>
+      <ConfirmationDialog
+        content={content}
+        cancelText={'Cancel'}
+        okText={'Yes'}
+        onClickCancel={() => {
+          setShowDialog(false);
+        }}
+        onClickOk={onConfirmQuit}
+        title={'Quit'}
+        visible={showDialog}
+      />
+      <Button label={'Quit'} size={'small'} link linkColor={Colors.red10} onPress={onPressQuit} />
+    </>
+  );
+};
+
+const ConfirmationDialog = (props: {
+  content: string;
+  cancelText: string;
+  okText: string;
+  onClickCancel: any;
+  onClickOk: any;
+  title: string;
+  visible: boolean;
+}) => {
+  return (
+    <Dialog visible={props.visible} panDirection={'right'} onDismiss={props.onClickCancel}>
+      <Card padding-15>
+        <Text text50BO>{props.title}</Text>
+        <Text text80 marginT-10>
+          {props.content}
+        </Text>
+        <View row style={{justifyContent: 'space-around'}} marginT-20>
+          <Button label={props.okText} onPress={props.onClickOk} link />
+          <Button
+            label={props.cancelText}
+            onPress={props.onClickCancel}
+            link
+            linkColor={Colors.grey30}
+          />
+        </View>
+      </Card>
+    </Dialog>
+  );
 };
 
 const TeamBanner = (props: {team: Team}) => {

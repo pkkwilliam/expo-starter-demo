@@ -8,7 +8,7 @@ export const push = (stackName: string, screenName: string, params: any, navio?:
   getNavio(navio).N.navigate(stackName, {screen: screenName, params});
 };
 
-export const resetToMainTab = (navio?: any) => {
+export const resetToHomeTab = (navio?: any) => {
   setRoot('AppTabs', navio);
 };
 
