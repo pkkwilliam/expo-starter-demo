@@ -1,6 +1,6 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {ScrollView} from 'react-native';
-import {Text, View} from 'react-native-ui-lib';
+import {Button, Text, View} from 'react-native-ui-lib';
 import Constants from 'expo-constants';
 import * as Application from 'expo-application';
 import {If} from '@kanzitelli/if-component';
@@ -15,6 +15,9 @@ import {Reanimated2} from '@app/components/reanimated2';
 import {Row} from '@app/components/row';
 import {useAppearance} from '@app/utils/hooks';
 import {NavioSection} from '@app/components/sections/NavioSection';
+import RTMPPublisher, {AudioInputType, RTMPPublisherRefProps} from 'react-native-rtmp-publisher';
+import {MuxStream} from '@app/components/MuxStream';
+
 
 export const Main: NavioScreen = observer(({}) => {
   useAppearance();
@@ -63,53 +66,59 @@ export const Main: NavioScreen = observer(({}) => {
   };
 
   return (
-    <View flex bg-bgColor>
-      <ScrollView contentInsetAdjustmentBehavior="always">
-        <NavioSection />
+    <View flex bg-bgColor useSafeArea>
+      <MuxStream />
 
-        <Section title="Expo">
-          <Text text60R textColor>
-            Session ID: {Constants.sessionId}
-          </Text>
-          <Text text60R textColor>
-            App name: {Application.applicationName}
-          </Text>
-        </Section>
+      {/*<ScrollView contentInsetAdjustmentBehavior="always">*/}
+      {/*  <MuxStream />*/}
 
-        <Section title="Reanimated">
-          <Reanimated2 />
-        </Section>
+      {/*  <NavioSection />*/}
 
-        <Section title="MobX">
-          <View centerV>
-            <Text marginB-s2 text60R textColor>
-              App launches: {ui.appLaunches}
-            </Text>
+      {/*  <Section title="Expo">*/}
+      {/*    <Text text60R textColor>*/}
+      {/*      Session ID: {Constants.sessionId}*/}
+      {/*    </Text>*/}
+      {/*    <Text text60R textColor>*/}
+      {/*      App name: {Application.applicationName}*/}
+      {/*    </Text>*/}
+      {/*  </Section>*/}
 
-            <Text marginB-s2 text60R textColor>
-              Counter:{' '}
-              <If
-                _={loading}
-                _then={<Text textColor>Loading...</Text>}
-                _else={<Text textColor>{counter.value}</Text>}
-              />
-            </Text>
+      {/*  <Section title="Reanimated">*/}
+      {/*    <Reanimated2 />*/}
+      {/*  </Section>*/}
 
-            <Row>
-              <BButton margin-s1 label=" - " onPress={handleCounterDec} />
-              <BButton margin-s1 label=" + " onPress={handleCounterInc} />
-              <BButton margin-s1 label="reset" onPress={handleCounterReset} />
-            </Row>
-          </View>
-        </Section>
+      {/*  <Section title="MobX">*/}
+      {/*    <View centerV>*/}
+      {/*      <Text marginB-s2 text60R textColor>*/}
+      {/*        App launches: {ui.appLaunches}*/}
+      {/*      </Text>*/}
 
-        <Section title="API">
-          <BButton margin-s1 label="Update counter value from API" onPress={getCounterValue} />
-        </Section>
-      </ScrollView>
+      {/*      <Text marginB-s2 text60R textColor>*/}
+      {/*        Counter:{' '}*/}
+      {/*        <If*/}
+      {/*          _={loading}*/}
+      {/*          _then={<Text textColor>Loading...</Text>}*/}
+      {/*          _else={<Text textColor>{counter.value}</Text>}*/}
+      {/*        />*/}
+      {/*      </Text>*/}
+
+      {/*      <Row>*/}
+      {/*        <BButton margin-s1 label=" - " onPress={handleCounterDec} />*/}
+      {/*        <BButton margin-s1 label=" + " onPress={handleCounterInc} />*/}
+      {/*        <BButton margin-s1 label="reset" onPress={handleCounterReset} />*/}
+      {/*      </Row>*/}
+      {/*    </View>*/}
+      {/*  </Section>*/}
+
+      {/*  <Section title="API">*/}
+      {/*    <BButton margin-s1 label="Update counter value from API" onPress={getCounterValue} />*/}
+      {/*  </Section>*/}
+      {/*</ScrollView>*/}
     </View>
   );
 });
+
 Main.options = () => ({
   title: services.t.do('home.title'),
+  headerShown: false,
 });
