@@ -17,7 +17,6 @@ function usePermissions() {
       setPermissionGranted(true);
       return;
     }
-    console.log('heerererere')
     const cameraPermission = await PermissionsAndroid.check(CAMERA_PERMISSION);
     const audioPermission = await PermissionsAndroid.check(AUDIO_PERMISSION);
     const bluetoothPermission = await PermissionsAndroid.check(

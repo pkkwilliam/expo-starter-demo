@@ -17,6 +17,10 @@ import {
 import {services} from '@app/services';
 import {AuthLogin} from './screens/auth/login';
 import {PlaygroundVideoStream} from '@app/screens/playground/video-stream';
+import {
+  SendbirdGroupChannelCreateScreen,
+  SendbirdGroupChannelListScreen, SendbirdGroupChannelScreen,
+} from '@app/components/sendbird/sendbird-components';
 
 // NAVIO
 export const navio = Navio.build({
@@ -37,11 +41,14 @@ export const navio = Navio.build({
         headerShown: false,
       },
     },
-
+    SendbirdGroupChannelListScreen,
+    SendbirdGroupChannelCreateScreen,
+    SendbirdGroupChannelScreen,
     // for auth flow
     AuthLogin,
   },
   stacks: {
+    ChatStack: ['SendbirdGroupChannelListScreen', 'SendbirdGroupChannelScreen'],
     MainStack: ['Main', 'Example'],
     ExampleStack: {
       screens: ['Example'],
@@ -82,6 +89,13 @@ export const navio = Navio.build({
           stack: 'PlaygroundStack',
           options: () => ({
             title: 'Playground',
+            tabBarIcon: getTabBarIcon('PlaygroundTab'),
+          }),
+        },
+        ChatTab: {
+          stack: 'ChatStack',
+          options: () => ({
+            title: 'Chat',
             tabBarIcon: getTabBarIcon('PlaygroundTab'),
           }),
         },

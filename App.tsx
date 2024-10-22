@@ -18,6 +18,9 @@ import {hydrateStores} from '@app/stores';
 import {initServices} from '@app/services';
 import {AppProvider} from '@app/utils/providers';
 import {useAppearance} from '@app/utils/hooks';
+import {SendbirdUIKitContainer} from '@sendbird/uikit-react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import platformServices from '@app/config/SendbirdPlatformService';
 
 LogBox.ignoreLogs([
   'Require',
@@ -56,18 +59,24 @@ export default (): JSX.Element => {
     <GestureHandlerRootView style={{flex: 1}}>
       <AppProvider>
         <StatusBar style={getStatusBarStyle()} backgroundColor={getStatusBarBGColor()} />
-        <NavioApp
-          navigationContainerProps={{
-            theme: getNavigationTheme(),
-            linking: {
-              prefixes: [Linking.createURL('/')],
-            },
-          }}
+        <SendbirdUIKitContainer
+          appId={'1E2BBFA9-279B-4696-8F87-8488F502036E'}
+          chatOptions={{localCacheStorage: AsyncStorage}}
+          platformServices={platformServices}
+        >
+          <NavioApp
+            navigationContainerProps={{
+              theme: getNavigationTheme(),
+              linking: {
+                prefixes: [Linking.createURL('/')],
+              },
+            }}
 
-          // [Tip]
-          // You can use `root` to change the root of the app depending on global state changes.
-          // root={isLoggedIn ? 'AuthStack' : 'AppTabs'}
-        />
+            // [Tip]
+            // You can use `root` to change the root of the app depending on global state changes.
+            // root={isLoggedIn ? 'AuthStack' : 'AppTabs'}
+          />
+        </SendbirdUIKitContainer>
       </AppProvider>
     </GestureHandlerRootView>
   );
