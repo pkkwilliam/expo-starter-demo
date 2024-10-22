@@ -67,53 +67,51 @@ export const Main: NavioScreen = observer(({}) => {
 
   return (
     <View flex bg-bgColor useSafeArea>
-      <MuxStream />
 
-      {/*<ScrollView contentInsetAdjustmentBehavior="always">*/}
-      {/*  <MuxStream />*/}
+      <ScrollView contentInsetAdjustmentBehavior="always">
 
-      {/*  <NavioSection />*/}
+        <NavioSection />
 
-      {/*  <Section title="Expo">*/}
-      {/*    <Text text60R textColor>*/}
-      {/*      Session ID: {Constants.sessionId}*/}
-      {/*    </Text>*/}
-      {/*    <Text text60R textColor>*/}
-      {/*      App name: {Application.applicationName}*/}
-      {/*    </Text>*/}
-      {/*  </Section>*/}
+        <Section title="Expo">
+          <Text text60R textColor>
+            Session ID: {Constants.sessionId}
+          </Text>
+          <Text text60R textColor>
+            App name: {Application.applicationName}
+          </Text>
+        </Section>
 
-      {/*  <Section title="Reanimated">*/}
-      {/*    <Reanimated2 />*/}
-      {/*  </Section>*/}
+        <Section title="Reanimated">
+          <Reanimated2 />
+        </Section>
 
-      {/*  <Section title="MobX">*/}
-      {/*    <View centerV>*/}
-      {/*      <Text marginB-s2 text60R textColor>*/}
-      {/*        App launches: {ui.appLaunches}*/}
-      {/*      </Text>*/}
+        <Section title="MobX">
+          <View centerV>
+            <Text marginB-s2 text60R textColor>
+              App launches: {ui.appLaunches}
+            </Text>
 
-      {/*      <Text marginB-s2 text60R textColor>*/}
-      {/*        Counter:{' '}*/}
-      {/*        <If*/}
-      {/*          _={loading}*/}
-      {/*          _then={<Text textColor>Loading...</Text>}*/}
-      {/*          _else={<Text textColor>{counter.value}</Text>}*/}
-      {/*        />*/}
-      {/*      </Text>*/}
+            <Text marginB-s2 text60R textColor>
+              Counter:{' '}
+              <If
+                _={loading}
+                _then={<Text textColor>Loading...</Text>}
+                _else={<Text textColor>{counter.value}</Text>}
+              />
+            </Text>
 
-      {/*      <Row>*/}
-      {/*        <BButton margin-s1 label=" - " onPress={handleCounterDec} />*/}
-      {/*        <BButton margin-s1 label=" + " onPress={handleCounterInc} />*/}
-      {/*        <BButton margin-s1 label="reset" onPress={handleCounterReset} />*/}
-      {/*      </Row>*/}
-      {/*    </View>*/}
-      {/*  </Section>*/}
+            <Row>
+              <BButton margin-s1 label=" - " onPress={handleCounterDec} />
+              <BButton margin-s1 label=" + " onPress={handleCounterInc} />
+              <BButton margin-s1 label="reset" onPress={handleCounterReset} />
+            </Row>
+          </View>
+        </Section>
 
-      {/*  <Section title="API">*/}
-      {/*    <BButton margin-s1 label="Update counter value from API" onPress={getCounterValue} />*/}
-      {/*  </Section>*/}
-      {/*</ScrollView>*/}
+        <Section title="API">
+          <BButton margin-s1 label="Update counter value from API" onPress={getCounterValue} />
+        </Section>
+      </ScrollView>
     </View>
   );
 });

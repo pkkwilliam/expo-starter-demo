@@ -30,6 +30,7 @@ export const Playground: React.FC = observer(() => {
   // Methods
   const showFlashList = () => navio.push('PlaygroundFlashList');
   const showExpoImage = () => navio.push('PlaygroundExpoImage');
+  const showVideoStream = () => navio.push('PlaygroundVideoStream');
   const showDrawerWithTabs = () => {
     Alert.alert('Uncomment related code in @app/navio.tsx and @app/screens/playground');
     // uncomment related code in navio.tsx and below
@@ -70,6 +71,12 @@ export const Playground: React.FC = observer(() => {
           subtitle: 'by Expo',
           icon: 'image-outline',
           onPress: showExpoImage,
+        },
+        {
+          title: 'Video Stream',
+          subtitle: 'by Mux',
+          icon: 'image-outline',
+          onPress: showVideoStream,
         },
       ],
     },

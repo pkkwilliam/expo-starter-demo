@@ -1874,6 +1874,13 @@
   dependencies:
     "@octokit/openapi-types" "^20.0.0"
 
+"@openspacelabs/react-native-zoomable-view@^2.1.5":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@openspacelabs/react-native-zoomable-view/-/react-native-zoomable-view-2.1.6.tgz#4ff8d06ba820818cd0a5f6d505d79a2c6db2ce9a"
+  integrity sha512-Eb8ro4a1DGkVBT9xIl7RQHSlpKQD7q62JeVXJKtLKZIZ+FNHDVfLGxwyeqUMevLHbBUTbAqX9+zsgOMk/mrHWg==
+  dependencies:
+    prop-types "^15.7.2"
+
 "@pnpm/network.ca-file@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@pnpm/network.ca-file/-/network.ca-file-1.0.1.tgz#16f88d057c68cd5419c1ef3dfa281296ea80b047"
@@ -1889,10 +1896,10 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@react-native-async-storage/async-storage@1.21.0":
-  version "1.21.0"
-  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.21.0.tgz#d7e370028e228ab84637016ceeb495878b7a44c8"
-  integrity sha512-JL0w36KuFHFCvnbOXRekqVAUplmOyT/OuCQkogo6X98MtpSaJOKEAeZnYO8JB0U/RIEixZaGI5px73YbRm/oag==
+"@react-native-async-storage/async-storage@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-2.0.0.tgz#22373f7f83132547701637fc574ddb83b83b384e"
+  integrity sha512-af6H9JjfL6G/PktBfUivvexoiFKQTJGQCtSWxMdivLzNIY94mu9DdiY0JqCSg/LyPCLGKhHPUlRQhNvpu3/KVA==
   dependencies:
     merge-options "^3.0.4"
 
@@ -2075,6 +2082,11 @@
   version "0.1.11"
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.11.tgz#2f4c6e10bee0786abff4604e39a37ded6f3980ce"
   integrity sha512-rQfMIGSR/1r/SyN87+VD8xHHzDYeHaJq6elOSCAD+0iLagXkSI2pfA0LmSXP21uw5i3em7GkkRjfJ8wpqWXZNw==
+
+"@react-native-community/netinfo@^11.4.1":
+  version "11.4.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-11.4.1.tgz#a3c247aceab35f75dd0aa4bfa85d2be5a4508688"
+  integrity sha512-B0BYAkghz3Q2V09BF88RA601XursIEA111tnc2JOaN7axJWmNefmfjZqw/KdSxKZp7CZUuPpjBmz/WCR9uaHYg==
 
 "@react-native-picker/picker@2.6.1":
   version "2.6.1"
@@ -2307,6 +2319,53 @@
   dependencies:
     component-type "^1.2.1"
     join-component "^1.1.0"
+
+"@sendbird/chat@^4.14.5":
+  version "4.14.5"
+  resolved "https://registry.yarnpkg.com/@sendbird/chat/-/chat-4.14.5.tgz#198688b0c5df3eb1a6f7a54a6a3e9804b55e1bb9"
+  integrity sha512-UhVWb5mH7XWGyOLVlaWvxvAoApJzudE9w1mT/fc4x2hmGLnuwa1I740oF1J6qQSAA756XEf9Fggyw+cCswrbdg==
+
+"@sendbird/react-native-scrollview-enhancer@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@sendbird/react-native-scrollview-enhancer/-/react-native-scrollview-enhancer-0.2.1.tgz#25de4af78293978a4c0ef6fddee25d822a364c46"
+  integrity sha512-LN+Tm+ZUkE2MBVreg/JI8SVr8SOKRteZN0YFpGzRtbKkP45+pKyPN4JQPf73eFx7qO8zDL+TUVyzz/1MOnIK7g==
+
+"@sendbird/uikit-chat-hooks@3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@sendbird/uikit-chat-hooks/-/uikit-chat-hooks-3.7.3.tgz#cb711b197983338222fb0c2da3cb88c421efbdb1"
+  integrity sha512-qRfFEH8fj5THOl2FXAgemWXYpvbrB8svv5bzt874m0V33mFowHJsrq352VaXWSGA1Q0r3BlZFxR3bp5VvWa7rg==
+  dependencies:
+    "@sendbird/uikit-utils" "3.7.3"
+
+"@sendbird/uikit-react-native-foundation@3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@sendbird/uikit-react-native-foundation/-/uikit-react-native-foundation-3.7.3.tgz#df809a065c659a70a2a5e0e53a06d674896c86ba"
+  integrity sha512-NsEDbW24aUfxuJQA3hbTJZvCqywscJJrUHW/HQeeBwRfvqMOr7xV6cgIYp0GGul7miJa2085pEEipBlpIC2WbQ==
+  dependencies:
+    "@sendbird/uikit-utils" "3.7.3"
+
+"@sendbird/uikit-react-native@^3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@sendbird/uikit-react-native/-/uikit-react-native-3.7.3.tgz#b966e38d371b09c84ef71732e8fc422441b674af"
+  integrity sha512-girT2t5LqlX8YoFSmPx8JRcRH8SPz/EayPoVeL8Txsho6X6q+Lj8on0zQdnyJoVsaByQrvzXrI3Y64qtZPH4Tg==
+  dependencies:
+    "@openspacelabs/react-native-zoomable-view" "^2.1.5"
+    "@sendbird/uikit-chat-hooks" "3.7.3"
+    "@sendbird/uikit-react-native-foundation" "3.7.3"
+    "@sendbird/uikit-tools" "0.0.1-alpha.77"
+    "@sendbird/uikit-utils" "3.7.3"
+
+"@sendbird/uikit-tools@0.0.1-alpha.77":
+  version "0.0.1-alpha.77"
+  resolved "https://registry.yarnpkg.com/@sendbird/uikit-tools/-/uikit-tools-0.0.1-alpha.77.tgz#f305849dc767488b76853be653c2149ec240e558"
+  integrity sha512-MZEgPmBYGf5QI+gqxVXJmQf880giYt8eJ9WNndvBFAMCXGm6Z12LaurU0IOR87wPyROse5kTy8smwXT8UaiuYQ==
+
+"@sendbird/uikit-utils@3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@sendbird/uikit-utils/-/uikit-utils-3.7.3.tgz#4d2617af40c925823efd06c5836186aedd43a901"
+  integrity sha512-3jKXSX+lwPDwHrMPeV3Oy3javME8TKhJzDhyztxuGFaX2zJRX9Us7Ih9xTgjA/ITm7XHMNU8XGjIRvWFk1E19w==
+  dependencies:
+    string.prototype.matchall "^4.0.7"
 
 "@shopify/flash-list@1.6.3":
   version "1.6.3"
@@ -4598,6 +4657,11 @@ date-fns@^2.29.3:
   version "2.29.3"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
   integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
+
+date-fns@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-4.1.0.tgz#64b3d83fff5aa80438f5b1a633c2e83b8a1c2d14"
+  integrity sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==
 
 dayjs@^1.8.15:
   version "1.10.4"
@@ -9711,10 +9775,10 @@ react-native-rtmp-publisher@^0.4.7:
   resolved "https://registry.yarnpkg.com/react-native-rtmp-publisher/-/react-native-rtmp-publisher-0.4.7.tgz#771ce6172aed3e923bd5cf53d1756aecb95ad85d"
   integrity sha512-sqc67p+pbJ9Gnc51GXfP4okm4vdWz+utsTfQvutVKa/ROG2lpUzo6jVvzniMNwp4GrZdCegHrl23ITmNfSyfzg==
 
-react-native-safe-area-context@4.8.2:
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.8.2.tgz#e6b3d8acf3c6afcb4b5db03a97f9c37df7668f65"
-  integrity sha512-ffUOv8BJQ6RqO3nLml5gxJ6ab3EestPiyWekxdzO/1MQ7NF8fW1Mzh1C5QE9yq573Xefnc7FuzGXjtesZGv7cQ==
+react-native-safe-area-context@^4.11.1:
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.11.1.tgz#dae959f4512ca125f087a44c16b2c23de10b0e29"
+  integrity sha512-urF1m4nFiZFaWjsv2zj8J/hKvo4b2tJW+6CYU1mY4lKv1RwhG2eV8J/EHKuNlLhATZx3+6j7szrpHrQW2ZcAaQ==
 
 react-native-screens@~3.29.0:
   version "3.29.0"
@@ -10794,7 +10858,7 @@ string-width@^7.0.0:
     get-east-asian-width "^1.0.0"
     strip-ansi "^7.1.0"
 
-string.prototype.matchall@^4.0.10:
+string.prototype.matchall@^4.0.10, string.prototype.matchall@^4.0.7:
   version "4.0.11"
   resolved "https://registry.yarnpkg.com/string.prototype.matchall/-/string.prototype.matchall-4.0.11.tgz#1092a72c59268d2abaad76582dccc687c0297e0a"
   integrity sha512-NUdh0aDavY2og7IbBPenWqR9exH+E26Sv8e0/eTe1tltDGZL+GtBkDAnnyBtmekfK6/Dq3MkcGtzXFEd1LQrtg==
