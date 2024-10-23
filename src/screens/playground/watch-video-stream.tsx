@@ -24,7 +24,7 @@ export const PlaygroundWatchVideoStream: NavioScreen<Props> = observer(() => {
         <Video
           ref={video}
           source={{
-            uri:'https://stream.mux.com/video/v1/live-streams/tS5hTWIZBnMvtUKzdd00ICGO3XgUIh2cHQ1vMh3kIQNQ.m3u8'
+            uri:'https://stream.mux.com/APFOR1BMv384WrWlhYdkhoDLCDOPElA4Qr4nk4RMvhU.m3u8'
           }}
           useNativeControls
           resizeMode={ResizeMode.CONTAIN}

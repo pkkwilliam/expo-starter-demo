@@ -7,16 +7,16 @@ import {MuxStream} from '@app/components/MuxStream';
 export type Props = {};
 
 export const PlaygroundVideoStream: NavioScreen<Props> = observer(() => {
-  const [streamKey, setStreamKey] = useState<string>('caec10b8-21d7-f345-dcf8-dd202074cc5a');
+  const [streamKey, setStreamKey] = useState<string>('03162bf0-22a6-fb49-adfa-db8142661427');
   return (
     <View flex useSafeArea>
       <Text>Stream Key</Text>
-      <TextField  onChangeText={setStreamKey} value={streamKey} />
+      <TextField onChangeText={setStreamKey} value={streamKey} />
       <MuxStream streamKey={streamKey} />
     </View>
   );
 });
 PlaygroundVideoStream.options = {
   title: 'Video Stream',
-  headerShown: false,
+  headerShown: true,
 };
