@@ -30,6 +30,7 @@ export const Playground: React.FC = observer(() => {
   // Methods
   const showFlashList = () => navio.push('PlaygroundFlashList');
   const showExpoImage = () => navio.push('PlaygroundExpoImage');
+  const showLocation = () => navio.push('PlaygroundLocation');
   const showVideoStream = () => navio.push('PlaygroundVideoStream');
   const showWatchVideoStream = () => navio.push('PlaygroundWatchVideoStream');
   const showSocketIo = () => navio.push('PlaygroundSocketIo');
@@ -73,6 +74,12 @@ export const Playground: React.FC = observer(() => {
           subtitle: 'by Expo',
           icon: 'image-outline',
           onPress: showExpoImage,
+        },
+        {
+          title: 'Expo Location',
+          subtitle: 'by Expo',
+          icon: 'image-outline',
+          onPress: showLocation,
         },
         {
           title: 'Video Stream',

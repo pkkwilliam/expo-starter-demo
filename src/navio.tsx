@@ -24,6 +24,7 @@ import {
 } from '@app/components/sendbird/sendbird-components';
 import {PlaygroundSocketIo} from '@app/screens/playground/socket-io';
 import {PlaygroundWatchVideoStream} from '@app/screens/playground/watch-video-stream';
+import {PlaygroundLocation} from '@app/screens/playground/location';
 
 // NAVIO
 export const navio = Navio.build({
@@ -35,6 +36,7 @@ export const navio = Navio.build({
     Playground,
     PlaygroundFlashList,
     PlaygroundExpoImage,
+    PlaygroundLocation,
     PlaygroundSocketIo,
     PlaygroundWatchVideoStream,
     PlaygroundVideoStream,
@@ -68,6 +70,7 @@ export const navio = Navio.build({
         'Playground',
         'PlaygroundFlashList',
         'PlaygroundExpoImage',
+        'PlaygroundLocation',
         'PlaygroundVideoStream',
         'PlaygroundWatchVideoStream',
         'PlaygroundSocketIo',
