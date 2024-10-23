@@ -19,9 +19,11 @@ import {AuthLogin} from './screens/auth/login';
 import {PlaygroundVideoStream} from '@app/screens/playground/video-stream';
 import {
   SendbirdGroupChannelCreateScreen,
-  SendbirdGroupChannelListScreen, SendbirdGroupChannelScreen,
+  SendbirdGroupChannelListScreen,
+  SendbirdGroupChannelScreen,
 } from '@app/components/sendbird/sendbird-components';
 import {PlaygroundSocketIo} from '@app/screens/playground/socket-io';
+import {PlaygroundWatchVideoStream} from '@app/screens/playground/watch-video-stream';
 
 // NAVIO
 export const navio = Navio.build({
@@ -34,6 +36,7 @@ export const navio = Navio.build({
     PlaygroundFlashList,
     PlaygroundExpoImage,
     PlaygroundSocketIo,
+    PlaygroundWatchVideoStream,
     PlaygroundVideoStream,
 
     // for .pushStack example
@@ -61,7 +64,14 @@ export const navio = Navio.build({
       },
     },
     PlaygroundStack: {
-      screens: ['Playground', 'PlaygroundFlashList', 'PlaygroundExpoImage', 'PlaygroundVideoStream', 'PlaygroundSocketIo'],
+      screens: [
+        'Playground',
+        'PlaygroundFlashList',
+        'PlaygroundExpoImage',
+        'PlaygroundVideoStream',
+        'PlaygroundWatchVideoStream',
+        'PlaygroundSocketIo',
+      ],
     },
 
     // for .pushStack example

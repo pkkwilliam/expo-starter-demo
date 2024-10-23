@@ -31,6 +31,7 @@ export const Playground: React.FC = observer(() => {
   const showFlashList = () => navio.push('PlaygroundFlashList');
   const showExpoImage = () => navio.push('PlaygroundExpoImage');
   const showVideoStream = () => navio.push('PlaygroundVideoStream');
+  const showWatchVideoStream = () => navio.push('PlaygroundWatchVideoStream');
   const showSocketIo = () => navio.push('PlaygroundSocketIo');
   const showDrawerWithTabs = () => {
     Alert.alert('Uncomment related code in @app/navio.tsx and @app/screens/playground');
@@ -78,6 +79,12 @@ export const Playground: React.FC = observer(() => {
           subtitle: 'by Mux',
           icon: 'image-outline',
           onPress: showVideoStream,
+        },
+        {
+          title: 'Watch Video Stream',
+          subtitle: 'by Mux',
+          icon: 'image-outline',
+          onPress: showWatchVideoStream,
         },
         {
           title: 'Socket IO',

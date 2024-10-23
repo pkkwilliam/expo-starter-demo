@@ -96,7 +96,7 @@ export const MuxStream = (props:any) => {
       <RTMPPublisher
         ref={publisherRef}
         streamURL={'rtmp://global-live.mux.com:5222/app'}
-        streamName={'e25cc4a9-7ea1-872b-0db9-4d54f71201d1'}
+        streamName={props.streamKey}
         style={styles.publisher_camera}
         onDisconnect={handleOnDisconnect}
         onConnectionFailed={handleOnConnectionFailed}
