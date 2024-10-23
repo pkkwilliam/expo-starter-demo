@@ -25,6 +25,7 @@ import {
 import {PlaygroundSocketIo} from '@app/screens/playground/socket-io';
 import {PlaygroundWatchVideoStream} from '@app/screens/playground/watch-video-stream';
 import {PlaygroundLocation} from '@app/screens/playground/location';
+import {PlaygroundMap} from '@app/screens/playground/map';
 
 // NAVIO
 export const navio = Navio.build({
@@ -37,6 +38,7 @@ export const navio = Navio.build({
     PlaygroundFlashList,
     PlaygroundExpoImage,
     PlaygroundLocation,
+    PlaygroundMap,
     PlaygroundSocketIo,
     PlaygroundWatchVideoStream,
     PlaygroundVideoStream,
@@ -71,6 +73,7 @@ export const navio = Navio.build({
         'PlaygroundFlashList',
         'PlaygroundExpoImage',
         'PlaygroundLocation',
+        'PlaygroundMap',
         'PlaygroundVideoStream',
         'PlaygroundWatchVideoStream',
         'PlaygroundSocketIo',

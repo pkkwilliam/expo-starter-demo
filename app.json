@@ -20,12 +20,18 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "io.batyr.expo-starter"
+      "bundleIdentifier": "io.batyr.expo-starter",
+      "config": {
+        "googleMapsApiKey": "AIzaSyD-E5VpC8D-ZBUS9Vsn1UIfl6MeZCzRnT4"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleMapsApiKey": "AIzaSyD-E5VpC8D-ZBUS9Vsn1UIfl6MeZCzRnT4"
       },
       "package": "io.batyr.expostarter"
     },

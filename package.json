@@ -71,6 +71,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.73.6",
     "react-native-gesture-handler": "~2.14.0",
+    "react-native-maps": "1.10.0",
     "react-native-mmkv": "^2.7.0",
     "react-native-reanimated": "~3.6.2",
     "react-native-rtmp-publisher": "^0.4.7",
