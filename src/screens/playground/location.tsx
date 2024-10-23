@@ -3,12 +3,12 @@ import {NavioScreen} from 'rn-navio';
 import {observer} from 'mobx-react';
 import {Button, Colors, Hint, Text, View} from 'react-native-ui-lib';
 import * as Location from 'expo-location';
-import {LocationOptions} from 'expo-location';
+import {LocationObject, LocationOptions} from 'expo-location';
 
 export type Props = {};
 
 export const PlaygroundLocation: NavioScreen<Props> = observer(() => {
-  const [location, setLocation] = useState<any>(null);
+  const [location, setLocation] = useState<LocationObject | null>(null);
   const [errorMsg, setErrorMsg] = useState<any>(null);
   const [subscription, setSubscription] = useState<any>(null);
   const [showHint, setShowHint] = useState<boolean>(true);
