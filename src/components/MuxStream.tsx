@@ -4,6 +4,12 @@ import {Button, View} from 'react-native-ui-lib';
 import { StyleSheet } from 'react-native';
 import usePermissions from '@app/hook/userPermissions';
 
+/**
+ * https://github.com/ezranbayantemur/react-native-rtmp-publisher
+ * @param props
+ * @constructor
+ */
+
 export const MuxStream = (props:any) => {
   const publisherRef = useRef<RTMPPublisherRefProps>(null);
   const [isStreaming, setIsStreaming] = useState<boolean>(false);

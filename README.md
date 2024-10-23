@@ -223,3 +223,7 @@ Feel free to open an issue for suggestions.
 ## License
 
 This project is [MIT licensed](/LICENSE.md)
+
+This cannot use Expo GO
+local.properties
+sdk.dir = /Users/USERNAME/Library/Android/sdk

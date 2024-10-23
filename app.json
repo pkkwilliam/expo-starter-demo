@@ -31,9 +31,16 @@
         "backgroundColor": "#FFFFFF"
       },
       "config": {
-        "googleMapsApiKey": "AIzaSyD-E5VpC8D-ZBUS9Vsn1UIfl6MeZCzRnT4"
+        "googleMaps": {
+          "apiKey": "AIzaSyD-E5VpC8D-ZBUS9Vsn1UIfl6MeZCzRnT4"
+        }
       },
-      "package": "io.batyr.expostarter"
+      "package": "io.batyr.expostarter",
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "BLUETOOTH_CONNECT"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
