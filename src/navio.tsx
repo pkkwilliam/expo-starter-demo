@@ -21,6 +21,7 @@ import {
   SendbirdGroupChannelCreateScreen,
   SendbirdGroupChannelListScreen, SendbirdGroupChannelScreen,
 } from '@app/components/sendbird/sendbird-components';
+import {PlaygroundSocketIo} from '@app/screens/playground/socket-io';
 
 // NAVIO
 export const navio = Navio.build({
@@ -32,6 +33,7 @@ export const navio = Navio.build({
     Playground,
     PlaygroundFlashList,
     PlaygroundExpoImage,
+    PlaygroundSocketIo,
     PlaygroundVideoStream,
 
     // for .pushStack example
@@ -59,7 +61,7 @@ export const navio = Navio.build({
       },
     },
     PlaygroundStack: {
-      screens: ['Playground', 'PlaygroundFlashList', 'PlaygroundExpoImage', 'PlaygroundVideoStream'],
+      screens: ['Playground', 'PlaygroundFlashList', 'PlaygroundExpoImage', 'PlaygroundVideoStream', 'PlaygroundSocketIo'],
     },
 
     // for .pushStack example

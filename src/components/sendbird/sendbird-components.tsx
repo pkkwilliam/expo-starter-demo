@@ -22,21 +22,21 @@ export const SendbirdGroupChannelListScreen: NavioScreen = observer(({}) => {
   return (
     <GroupChannelListFragment
       onPressCreateChannel={channelType => {
-    // Navigate to GroupChannelCreate function.
-    // navigation.navigate('GroupChannelCreateScreen', {channelType});
-    navio.push('SendbirdGroupChannelCreateScreen', {channelType});
-  }}
-  onPressChannel={channel => {
-    // Navigate to GroupChannel function.
-    navio.push('SendbirdGroupChannelScreen', {channelUrl: channel.url});
-    // navigation.navigate('GroupChannel', {channelUrl: channel.url});
-  }}
-  />
-);
+        // Navigate to GroupChannelCreate function.
+        // navigation.navigate('GroupChannelCreateScreen', {channelType});
+        navio.push('SendbirdGroupChannelCreateScreen', {channelType});
+      }}
+      onPressChannel={channel => {
+        // Navigate to GroupChannel function.
+        navio.push('SendbirdGroupChannelScreen', {channelUrl: channel.url});
+        // navigation.navigate('GroupChannel', {channelUrl: channel.url});
+      }}
+    />
+  );
 });
 SendbirdGroupChannelListScreen.options = {
-  headerShown: false
-}
+  headerShown: false,
+};
 
 export const SendbirdGroupChannelCreateScreen = () => {
   const navigation = useNavigation<any>();
@@ -44,15 +44,15 @@ export const SendbirdGroupChannelCreateScreen = () => {
   return (
     <GroupChannelCreateFragment
       onCreateChannel={async channel => {
-    // Navigate to GroupChannel function.
-    navigation.replace('GroupChannelScreen', {channelUrl: channel.url});
-  }}
-  onPressHeaderLeft={() => {
-    // Go back to the previous screen.
-    navigation.goBack();
-  }}
-  />
-);
+        // Navigate to GroupChannel function.
+        navigation.replace('GroupChannelScreen', {channelUrl: channel.url});
+      }}
+      onPressHeaderLeft={() => {
+        // Go back to the previous screen.
+        navigation.goBack();
+      }}
+    />
+  );
 };
 
 export const SendbirdGroupChannelScreen: NavioScreen = observer(({}) => {
@@ -66,21 +66,21 @@ export const SendbirdGroupChannelScreen: NavioScreen = observer(({}) => {
   return (
     <GroupChannelFragment
       channel={channel}
-  onChannelDeleted={() => {
-    // Navigate to GroupChannelList function.
-    navigation.navigate('GroupChannelList');
-  }}
-  onPressHeaderLeft={() => {
-    // Go back to the previous screen.
-    navigation.goBack();
-  }}
-  onPressHeaderRight={() => {
-    // Navigate to GroupChannelSettings function.
-    navigation.navigate('GroupChannelSettings', {channelUrl: params.channelUrl});
-  }}
-  />
-);
+      onChannelDeleted={() => {
+        // Navigate to GroupChannelList function.
+        navigation.navigate('GroupChannelList');
+      }}
+      onPressHeaderLeft={() => {
+        // Go back to the previous screen.
+        navigation.goBack();
+      }}
+      onPressHeaderRight={() => {
+        // Navigate to GroupChannelSettings function.
+        navigation.navigate('GroupChannelSettings', {channelUrl: params.channelUrl});
+      }}
+    />
+  );
 });
 SendbirdGroupChannelScreen.options = {
-  headerShown: false
-}
+  headerShown: false,
+};
